@@ -3,15 +3,17 @@ package com.example.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dao.CorreoDao;
 import com.example.entities.Correo;
 
+@Service
 public class CorreoServiceImpl implements CorreoService {
 
     @Autowired
-    public CorreoDao correoDao;
+    private CorreoDao correoDao;
 
     @Override
     public List<Correo> findAll() {
@@ -19,6 +21,7 @@ public class CorreoServiceImpl implements CorreoService {
     }
 
     @Override
+    @Transactional
     public Correo findById(int idCorreo) {
         return correoDao.findById(idCorreo).get();
     }
@@ -34,6 +37,6 @@ public class CorreoServiceImpl implements CorreoService {
     public void deleteBy(int idCorreo) {
         correoDao.deleteById(idCorreo);
     }
-    
+
     
 }

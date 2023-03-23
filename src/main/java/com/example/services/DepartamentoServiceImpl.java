@@ -3,15 +3,16 @@ package com.example.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dao.DepartamentoDao;
 import com.example.entities.Departamento;
-
+@Service
 public class DepartamentoServiceImpl implements DepartamentoService {
 
     @Autowired
-    public DepartamentoDao departamentoDao;
+    private DepartamentoDao departamentoDao;
 
     @Override
     public List<Departamento> findAll() {
