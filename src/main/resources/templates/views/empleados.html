@@ -72,7 +72,7 @@
                 <td>
                     <a th:href="@{/empleados/editar/{id}(id=${empleado.id})}">Editar</a>
                     <a th:href="@{/empleados/eliminar/{id}(id=${empleado.id})}">Eliminar</a>
-                    <a href="@{/empleados/detalle/{id}(id=${empleado.id})}">Detalles</a>
+                    <a href="@{/detalle/}+${empleado.id}">Detalles</a>
                 </td>
             </tr>
         </tbody>

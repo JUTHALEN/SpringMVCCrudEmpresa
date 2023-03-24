@@ -81,6 +81,7 @@
 <body>
     <h1>Alta nuevo empleado</h1>
     <form th:object="${empleado}" th:action="@{/altaModificacionEmpleado}" method="post"> 
+        <input type="text" name="id" th:value="${empleado.id}">
 
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre" th:field="*{nombre}" required>
@@ -117,14 +118,16 @@
             th:selected="${empleado.departamento != null and departamento.id == empleado.departamento.id}"></option>
         </select>
 
-        <label for="correo">Correo:</label>
-        <input type="text" name="correo" id="correo" th:field="*{correos}" placeholder="Uno o varios separados por ;" required>
+        <label for="listCorreos">Correo:</label>
+        <input type="text" name="listcorreos" id="listcorreos" placeholder="Uno o varios separados por ;"
+                th:value="${correos}">
 
         <label for="numTelefono">Teléfono(s)</label>
         <input type="text" name="numTelefono" id="numTelefono" placeholder="Uno o varios separados por ;"
                 th:value="${telefonos}">
 
-        <input type="submit" value="Guardar">
+        <input type="submit" value="Alta/Modificar">
+
     </form>
 
 </body>

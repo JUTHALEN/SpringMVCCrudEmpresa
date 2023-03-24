@@ -12,5 +12,6 @@ public interface TelefonoService {
     public void save(Telefono telefono);
     public void deleteBy(int idTelefono);
     public void deleteByEmpledo(Empleado empleado);
+    public List<Telefono> findByEmpleado(Empleado empleado);
     
 }

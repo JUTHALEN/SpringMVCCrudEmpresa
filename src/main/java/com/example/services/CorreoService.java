@@ -12,5 +12,6 @@ public interface CorreoService {
     public void save(Correo correo);
     public void deleteBy(int idCorreo);
     public void deleteByEmpledo(Empleado empleado);
+    public List<Correo> findByEmpleado(Empleado empleado);
     
 }

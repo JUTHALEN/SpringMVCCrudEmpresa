@@ -39,8 +39,15 @@ public class TelefonoServiceImpl implements TelefonoService {
     }
 
     @Override
+    @Transactional
     public void deleteByEmpledo(Empleado empleado) {
         telefonoDao.deleteByEmpleado(empleado);
+    }
+
+    @Override
+    @Transactional
+    public List<Telefono> findByEmpleado(Empleado empleado) {
+        return telefonoDao.findByEmpleado(empleado);
     }
 
     
