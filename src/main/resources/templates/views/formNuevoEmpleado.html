@@ -7,76 +7,63 @@
     <title>Alta Empleado</title>
 </head>
 <style>
-    h1{
-        text-align: center;
+    body {
+        background-color: #cbe4f0;
+        font-family: Arial, sans-serif;
     }
-    form{
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 5px;
-        background-color: rgb(226, 247, 248);
-        border: 1px solid black;
-        border-radius: 5px;
+    h1 {
         text-align: center;
-        width: 500px;
-        height: auto;
+        margin-top: 30px;
     }
-    label{
+    form {
+        width: 80%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+    label {
         display: block;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #555;
     }
-    input{
+    input[type=text], input[type=date], select {
         display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 5px;
-        background-color: rgb(244, 244, 244);
-        border: 1px solid black;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
         border-radius: 5px;
-        text-align: center;
-        width: auto;
-        height: auto;
+        box-sizing: border-box;
+        margin-bottom: 20px;
     }
-    input[type=submit]{
+    input[type=radio] {
+        margin-right: 10px;
+    }
+    input[type=submit] {
         display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 5px;
-        background-color: rgb(190, 196, 196);
-        border: 1px solid black;
+        margin: 0 auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
         border-radius: 5px;
-        text-align: center;
-        width: auto;
-        height: auto;
-    }
-    .inline {
-    display: inline-block;
-    margin-right: 10px;
+        cursor: pointer;
     }
     .radio-container {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+        margin-bottom: 20px;
     }
-
     .radio-container label {
-    display: block;
-    margin-bottom: 5px;
+        font-size: 14px;
+        font-weight: normal;
+        color: #555;
+        margin-left: 10px;
     }
-
-    .radio-container .inline {
-    display: inline-block;
-    margin-right: 10px;
-    }
-
-
 </style>
 <body>
     <h1>Alta nuevo empleado</h1>
