@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dao.TelefonoDao;
+import com.example.entities.Empleado;
 import com.example.entities.Telefono;
 
 @Service
@@ -35,6 +36,11 @@ public class TelefonoServiceImpl implements TelefonoService {
     @Transactional
     public void deleteBy(int idTelefono) {
         telefonoDao.deleteById(idTelefono);
+    }
+
+    @Override
+    public void deleteByEmpledo(Empleado empleado) {
+        telefonoDao.deleteByEmpleado(empleado);
     }
 
     

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta Empleado</title>
+</head>
+<style>
+    h1{
+        text-align: center;
+    }
+    form{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 5px;
+        background-color: rgb(226, 247, 248);
+        border: 1px solid black;
+        border-radius: 5px;
+        text-align: center;
+        width: 500px;
+        height: auto;
+    }
+    label{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    input{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 5px;
+        background-color: rgb(244, 244, 244);
+        border: 1px solid black;
+        border-radius: 5px;
+        text-align: center;
+        width: auto;
+        height: auto;
+    }
+    input[type=submit]{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 5px;
+        background-color: rgb(190, 196, 196);
+        border: 1px solid black;
+        border-radius: 5px;
+        text-align: center;
+        width: auto;
+        height: auto;
+    }
+    .inline {
+    display: inline-block;
+    margin-right: 10px;
+    }
+    .radio-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    }
+
+    .radio-container label {
+    display: block;
+    margin-bottom: 5px;
+    }
+
+    .radio-container .inline {
+    display: inline-block;
+    margin-right: 10px;
+    }
+
+
+</style>
+<body>
+    <h1>Alta nuevo empleado</h1>
+    <form th:object="${empleado}" th:action="@{/altaModificacionEmpleado}" method="post"> 
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" th:field="*{nombre}" required>
+
+        <label for="apellido">Apellidos</label>
+        <input type="text" name="apellido" id="apellido" th:field="*{apellidos}" required>
+
+        <div class="radio-container">
+            <label>Genero:</label>
+            <div class="inline">
+              <label for="hombre">Hombre</label>
+              <input type="radio" name="genero" id="hombre" value="HOMBRE" th:field="*{genero}" required>
+            </div>
+          
+            <div class="inline">
+              <label for="mujer">Mujer</label>
+              <input type="radio" name="genero" id="mujer" value="MUJER" th:field="*{genero}"required>
+            </div>
+          
+            <div class="inline">
+              <label for="otro">Otro</label>
+              <input type="radio" name="genero" id="otro" value="OTRO" th:field="*{genero}" required>
+            </div>
+        </div>             
+
+        <label for="fechaAlta">Fecha de Alta:</label>
+        <input type="date" name="fechaAlta" id="fechaAlta" th:field="*{fechaAlta}" 
+        th:value="${empleado.fechaAlta}" required> 
+
+        <label for="departamento">Departamento:</label>
+        <select name="departamento" id="departamento" required>
+            <option>Selecciona un departamento</option>
+            <option th:each="departamento: ${departamentos}"  th:value="${departamento.id}" th:text="${departamento.nombre}"
+            th:selected="${empleado.departamento != null and departamento.id == empleado.departamento.id}"></option>
+        </select>
+
+        <label for="correo">Correo:</label>
+        <input type="text" name="correo" id="correo" th:field="*{correos}" placeholder="Uno o varios separados por ;" required>
+
+        <label for="numTelefono">Teléfono(s)</label>
+        <input type="text" name="numTelefono" id="numTelefono" placeholder="Uno o varios separados por ;"
+                th:value="${telefonos}">
+
+        <input type="submit" value="Guardar">
+    </form>
+
+</body>
+</html>

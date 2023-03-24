@@ -7,7 +7,9 @@
     <title>Empleados</title>
 </head>
 <style>
-    <!-- LA tabla este en el centro-->
+    h1{
+        text-align: center;
+    }
     table {
         margin-left: auto;
         margin-right: auto;
@@ -15,10 +17,37 @@
     table, th, td {
         border: 1px solid black;
         border-collapse: collapse;
+        text-align: center;
     }
     th, td {
         padding: 5px;
+        
+    } 
+    tbody{
+        background-color:rgb(241, 245, 244);      
     }
+    thead{
+        background-color: rgb(226, 247, 248);
+    } 
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    #boton{
+        display: block;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 5px;
+        background-color: rgb(226, 247, 248);
+        border: 1px solid black;
+        border-radius: 5px;
+        text-align: center;
+        width: 300px;
+        height: auto;
+    }   
 </style>
 <body>
     <h1>Empleados</h1>
@@ -28,7 +57,8 @@
                 <th>Id</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Correo</th>
+                <th>Genero</th>
+                <th>Departamento</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -38,14 +68,16 @@
                 <td th:text="${empleado.nombre}"></td>
                 <td th:text="${empleado.apellidos}"></td>
                 <td th:text="${empleado.genero}"></td>
+                <td th:text="${empleado.departamento.nombre}"></td>
                 <td>
                     <a th:href="@{/empleados/editar/{id}(id=${empleado.id})}">Editar</a>
                     <a th:href="@{/empleados/eliminar/{id}(id=${empleado.id})}">Eliminar</a>
+                    <a href="@{/empleados/detalle/{id}(id=${empleado.id})}">Detalles</a>
                 </td>
             </tr>
         </tbody>
     </table>
-    <a th:href="@{/empleados/nuevo}">Nuevo</a>
+    <a id ="boton" th:href="@{/empleados/nuevo}">Nuevo Empleado</a>
     
 </body>
 </html>

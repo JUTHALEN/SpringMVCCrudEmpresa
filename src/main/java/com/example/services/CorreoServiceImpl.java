@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dao.CorreoDao;
 import com.example.entities.Correo;
+import com.example.entities.Empleado;
 
 @Service
 public class CorreoServiceImpl implements CorreoService {
@@ -36,6 +37,12 @@ public class CorreoServiceImpl implements CorreoService {
     @Transactional
     public void deleteBy(int idCorreo) {
         correoDao.deleteById(idCorreo);
+    }
+
+    @Override
+    @Transactional
+    public void deleteByEmpledo(Empleado empleado) {
+        correoDao.deleteByEmpleado(empleado);
     }
 
     
