@@ -165,10 +165,10 @@ public class MainController {
         return "redirect:/empleados";
     }
 
-    @GetMapping(value="/detalle/{id}")
-    public String empleadoDetails(@PathVariable(name = "id") int id, Model model){
+    @GetMapping("/empleados/detalle/{id}")
+    public String empleadoDetails(@PathVariable(name = "id") int idEmpleado, Model model){
 
-        Empleado empleado = empleadoService.findById(id);
+        Empleado empleado = empleadoService.findById(idEmpleado);
 
         List<Telefono> telefonos = telefonoService.findByEmpleado(empleado); 
         List<Correo> correos = correoService.findByEmpleado(empleado);
